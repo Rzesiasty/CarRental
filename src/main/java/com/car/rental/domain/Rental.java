@@ -1,5 +1,4 @@
 package com.car.rental.domain;
 
-public class User {
-
+public class Rental {
 }
