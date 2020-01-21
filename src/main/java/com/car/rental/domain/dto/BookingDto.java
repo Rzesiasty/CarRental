@@ -15,9 +15,10 @@ import java.time.LocalDate;
 public class BookingDto {
 
     private Long id;
-    private Customer customerId;
+    private Customer customer;
     private BookingStatusCode statusCode;
     private Vehicle regNumber;
     private LocalDate bookingFromDate;
     private LocalDate bookingToDate;
+
 }

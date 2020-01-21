@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,9 +31,9 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer",
             targetEntity = Address.class)
-    private List<Address> addressList = new ArrayList<>();
+    private List<Address> addressList;
 
-    @OneToMany(mappedBy = "customerId",
+    @OneToMany(mappedBy = "customer",
             targetEntity = Booking.class)
-    private Set<Booking> bookingSet = new HashSet<>();
+    private Set<Booking> bookingSet;
 }

@@ -22,10 +22,10 @@ public class Address {
 
     @NotNull
     @Column(name = "STREET_ADDRESS_1")
-    private String streetAddress2;
+    private String streetAddress1;
 
     @Column(name = "STREET_ADDRESS_2")
-    private String streetAddress1;
+    private String streetAddress2;
 
     @NotNull
     @Column(name = "CITY")

@@ -31,5 +31,5 @@ public class BookingStatusCode {
     private String description;
 
     @OneToMany(mappedBy = "statusCode")
-    private List<Booking> bookingList = new ArrayList<>();
+    private List<Booking> bookingList;
 }

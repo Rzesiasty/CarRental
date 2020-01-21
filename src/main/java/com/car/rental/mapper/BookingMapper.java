@@ -13,33 +13,33 @@ public class BookingMapper {
     public Booking mapToBooking(final BookingDto bookingDto) {
         return new Booking(
                 bookingDto.getId(),
-                bookingDto.getCustomerId(),
+                bookingDto.getCustomer(),
                 bookingDto.getStatusCode(),
                 bookingDto.getRegNumber(),
                 bookingDto.getBookingFromDate(),
                 bookingDto.getBookingToDate());
     }
 
-    public BookingDto mapToBookingDto(final Booking booking){
+    public BookingDto mapToBookingDto(final Booking booking) {
         return new BookingDto(
                 booking.getId(),
-                booking.getCustomerId(),
+                booking.getCustomer(),
                 booking.getStatusCode(),
                 booking.getRegNumber(),
                 booking.getBookingFromDate(),
                 booking.getBookingToDate());
     }
 
-    public List<BookingDto> mapToBookingDtoList(final List<Booking> bookingList){
+    public List<BookingDto> mapToBookingDtoList(final List<Booking> bookingList) {
         return bookingList.stream()
-                .map(b -> new BookingDto(b.getId(), b.getCustomerId(), b.getStatusCode(),
+                .map(b -> new BookingDto(b.getId(), b.getCustomer(), b.getStatusCode(),
                         b.getRegNumber(), b.getBookingFromDate(), b.getBookingToDate()))
                 .collect(Collectors.toList());
     }
 
-    public List<Booking> mapToBookingList(final List<BookingDto> bookingList){
+    public List<Booking> mapToBookingList(final List<BookingDto> bookingList) {
         return bookingList.stream()
-                .map(b -> new Booking(b.getId(), b.getCustomerId(), b.getStatusCode(),
+                .map(b -> new Booking(b.getId(), b.getCustomer(), b.getStatusCode(),
                         b.getRegNumber(), b.getBookingFromDate(), b.getBookingToDate()))
                 .collect(Collectors.toList());
     }
