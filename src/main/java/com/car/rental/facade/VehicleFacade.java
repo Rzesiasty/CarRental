@@ -36,14 +36,14 @@ public class VehicleFacade {
             LOGGER.info("Vehicle with id: " + id + " found.");
             return mapper.mapToVehicleDto(service.getVehicle(id));
         } else {
-            LOGGER.error("There is no booking with id: " + id);
+            LOGGER.error("There is no vehicle with id: " + id);
             throw new VehicleNotFoundException();
         }
     }
 
     public void saveVehicle(VehicleDto vehicleDto) {
         service.saveVehicle(mapper.mapToVehicle(vehicleDto));
-        LOGGER.info("Vehicle successful creating.");
+        LOGGER.info("Vehicle successful created.");
     }
 
     public VehicleDto updateVehicle(VehicleDto vehicleDto) throws VehicleNotFoundException {

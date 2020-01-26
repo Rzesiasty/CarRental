@@ -1,6 +1,5 @@
 package com.car.rental.domain.dto;
 
-import com.car.rental.domain.Booking;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +15,5 @@ public class VehicleDto {
     private String carName;
     private String description;
     private BigDecimal price;
-    private List<Booking> bookingList;
+    private List<BookingDto> bookingList;
 }

@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,23 +19,19 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
-    @Column(name = "CAR_ID", unique = true)
+    @Column(name = "CAR_ID")
     private Long carId;
 
-    @NotNull
     @Column(name = "CAR_NAME", unique = true)
     private String carName;
 
-    @NotNull
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @NotNull
     @Column(name = "PRICE")
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "regNumber",
+    @OneToMany(mappedBy = "vehicle",
             targetEntity = Booking.class)
-    private List<Booking> bookingList;
+    private List<Booking> bookings =new ArrayList<>();
 }

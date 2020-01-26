@@ -6,6 +6,7 @@ import com.car.rental.facade.BookingFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
@@ -17,6 +18,7 @@ public class BookingController {
     @Autowired
     private BookingFacade facade;
 
+    @RolesAllowed("ADMIN")
     @RequestMapping(method = RequestMethod.GET, value = "getBookings")
     public List<BookingDto> getBookings() {
         return facade.getBookings();

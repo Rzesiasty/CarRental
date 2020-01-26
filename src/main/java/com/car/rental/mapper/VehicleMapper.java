@@ -3,7 +3,6 @@ package com.car.rental.mapper;
 import com.car.rental.domain.Vehicle;
 import com.car.rental.domain.dto.VehicleDto;
 import com.car.rental.repository.VehicleRepository;
-import com.car.rental.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,10 +13,7 @@ import java.util.stream.Collectors;
 public class VehicleMapper {
 
     @Autowired
-    private VehicleService service;
-
-    @Autowired
-    private VehicleRepository repository;
+    private BookingMapper bookingMapper;
 
     public Vehicle mapToVehicle(final VehicleDto vehicleDto) {
         return new Vehicle(
@@ -25,7 +21,7 @@ public class VehicleMapper {
                 vehicleDto.getCarName(),
                 vehicleDto.getDescription(),
                 vehicleDto.getPrice(),
-                vehicleDto.getBookingList());
+                bookingMapper.mapToBookingList(vehicleDto.getBookingList()));
     }
 
     public VehicleDto mapToVehicleDto(final Vehicle vehicle) {
@@ -34,7 +30,7 @@ public class VehicleMapper {
                 vehicle.getCarName(),
                 vehicle.getDescription(),
                 vehicle.getPrice(),
-                vehicle.getBookingList());
+                bookingMapper.mapToBookingDtoList(vehicle.getBookings()));
     }
 
     public List<VehicleDto> mapToVehicleDtoList(final List<Vehicle> vehicles) {
@@ -44,8 +40,7 @@ public class VehicleMapper {
                         vehicle.getCarName(),
                         vehicle.getDescription(),
                         vehicle.getPrice(),
-                        vehicle.getBookingList()))
+                        bookingMapper.mapToBookingDtoList(vehicle.getBookings())))
                 .collect(Collectors.toList());
     }
-
 }

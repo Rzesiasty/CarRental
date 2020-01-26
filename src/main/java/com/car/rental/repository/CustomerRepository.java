@@ -1,6 +1,6 @@
 package com.car.rental.repository;
 
-import com.car.rental.domain.Vehicle;
+import com.car.rental.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,19 +8,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
 @Repository
-public interface VehicleRepository extends CrudRepository<Vehicle, Long> {
+@Transactional
+public interface CustomerRepository extends CrudRepository<User, Long> {
 
     @Override
-    List<Vehicle> findAll();
+    List<User> findAll();
 
     @Override
-    Optional<Vehicle> findById(Long id);
+    Optional<User> findById(Long id);
 
     @Override
     void deleteById(Long id);
 
     @Override
-    Vehicle save(Vehicle vehicle);
+    User save(User customer);
 }

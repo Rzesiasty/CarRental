@@ -1,24 +1,20 @@
 package com.car.rental.domain.dto;
 
-import com.car.rental.domain.BookingStatusCode;
-import com.car.rental.domain.Customer;
-import com.car.rental.domain.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingDto {
-
     private Long id;
-    private Customer customer;
-    private BookingStatusCode statusCode;
-    private Vehicle regNumber;
+    private Long user;
+    private Long vehicle;
     private LocalDate bookingFromDate;
     private LocalDate bookingToDate;
-
 }

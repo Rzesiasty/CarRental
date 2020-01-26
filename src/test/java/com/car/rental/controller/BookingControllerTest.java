@@ -1,8 +1,6 @@
 package com.car.rental.controller;
 
-import com.car.rental.domain.Address;
-import com.car.rental.domain.BookingStatusCode;
-import com.car.rental.domain.Customer;
+import com.car.rental.domain.User;
 import com.car.rental.domain.Vehicle;
 import com.car.rental.domain.dto.BookingDto;
 import com.car.rental.facade.BookingFacade;
@@ -38,9 +36,7 @@ class BookingControllerTest {
     @MockBean
     private BookingFacade facade;
 
-    private Address address = new Address(1L, "ul. Kowalskiego", "10/15", "Warszawa", 02 - 556, null);
-    private BookingStatusCode status = new BookingStatusCode(1L, "AC", "Accepted", null);
-    private Customer customers = new Customer(1L, "John", "Smith", null, null);
+    private User customers = new User(1L, "username", "test@test.pl", "password", 1, 125489L, null);
     private Vehicle vehicle = new Vehicle(1L, "BMW", "Desc rpiszon", new BigDecimal(150), null);
 
 
@@ -48,7 +44,7 @@ class BookingControllerTest {
     void shouldFetchBookings() throws Exception {
         //Given
         List<BookingDto> bookingDtoList = new ArrayList<>();
-        bookingDtoList.add(new BookingDto(1L, null, null, null, LocalDate.of(2020, Month.JANUARY, 20), LocalDate.of(2020, Month.JANUARY, 25)));
+        bookingDtoList.add(new BookingDto(1L, null, null, LocalDate.of(2020, Month.JANUARY, 20), LocalDate.of(2020, Month.JANUARY, 25)));
 
         when(facade.getBookings()).thenReturn(bookingDtoList);
 

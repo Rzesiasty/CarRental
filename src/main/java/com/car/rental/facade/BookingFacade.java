@@ -43,7 +43,7 @@ public class BookingFacade {
 
     public void saveBooking(BookingDto booking) {
         service.saveBooking(mapper.mapToBooking(booking));
-        LOGGER.info("Booking successful creating.");
+        LOGGER.info("Booking successful created.");
     }
 
     public BookingDto updateBooking(BookingDto bookingDto) throws BookingNotFoundException {
